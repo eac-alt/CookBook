@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -24,14 +22,10 @@ public class Ingredient  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ingredientId;
 	private String ingredientName;
-
-	@ManyToMany
-    @JoinTable(
-    		  name = "recipeIngredients ",
-    		  joinColumns = @JoinColumn(name = "ingredientId"),
-    		  inverseJoinColumns = @JoinColumn(name = "recipeId"))
 	
-	private Set<Ingredient> recipeHasIngredients;
+
+	@ManyToMany(mappedBy = "recipeHasIngredient")
+	private Set<Recipe> ingredientIsInRecipe;
 
 	public Long getIngredientId() {
 		return ingredientId;
@@ -45,16 +39,16 @@ public class Ingredient  {
 	public void setIngredientName(String ingredientName) {
 		this.ingredientName = ingredientName;
 	}
-	public Set<Ingredient> getRecipeHasIngredients() {
-		return recipeHasIngredients;
+	public Set<Recipe> getRecipeHasIngredients() {
+		return ingredientIsInRecipe;
 	}
-	public void setRecipeHasIngredients(Set<Ingredient> recipeHasIngredients) {
-		this.recipeHasIngredients = recipeHasIngredients;
+	public void setRecipeHasIngredients(Set<Recipe> recipeHasIngredients) {
+		this.ingredientIsInRecipe = recipeHasIngredients;
 	}
 	@Override
 	public String toString() {
 		return "Ingredient [ingredientId=" + ingredientId + ", ingredientName=" + ingredientName
-				+ ", recipeHasIngredients=" + recipeHasIngredients + "]";
+				+ ", recipeHasIngredients=" + ingredientIsInRecipe + "]";
 	}
 	
 	 

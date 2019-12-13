@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity 
@@ -20,14 +18,9 @@ public class Category {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long categoryId;
 		private String categoryName;
-
-		@ManyToMany
-	    @JoinTable(
-	    		  name = "recipeCategory ",
-	    		  joinColumns = @JoinColumn(name = "categoryId"),
-	    		  inverseJoinColumns = @JoinColumn(name = "recipeId"))
 		
-	    private Set<Category> recipeHasCategory;
+		@ManyToMany(mappedBy = "recipeHasCategory")
+	    private Set<Recipe> recipeHasCategory;
 		
 	
 		public Long getCategoryId() {
