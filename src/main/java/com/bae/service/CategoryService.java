@@ -2,30 +2,45 @@ package com.bae.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bae.exceptions.CategoryNotFoundException;
 import com.bae.persistence.domain.Category;
+import com.bae.persistence.repository.CategoryRepository;
 @Service
 public class CategoryService {
 
-	public static List<Category> getAllCategory() {
-		// TODO Auto-generated method stub
-		return null;
+	private CategoryRepository repository;
+	
+	@Autowired
+	public CategoryService(CategoryRepository repository) {
+		this.repository = repository;
 	}
 
-	public Category addNewCategory(Category category) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Category> getAllCategory() {
+		return repository.findAll();
+	}
+
+	public Category createCategory(Category category) {
+		return this.repository.save(category);
 	}
 
 	public Category updateCategory(Category category) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(category);
 	}
 
-	public String deleteCategory(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean deleteCategory(Long id) {
+		if (!this.repository.existsById(id)) {
+				throw new CategoryNotFoundException();
+		}
+		this.repository.deleteById(id);
+		return this.repository.existsById(id);
 	}
 
+	public Category findCategorybyId(Long id) {
+		return this.repository.findById(id).orElseThrow(
+				()-> new CategoryNotFoundException()); 
+	}
 }
+	

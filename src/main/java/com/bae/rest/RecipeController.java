@@ -3,6 +3,9 @@ package com.bae.rest;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,30 +22,41 @@ import com.bae.service.RecipeService;
 @RequestMapping("/recipeapp")
 public class RecipeController {
 	
-		private RecipeService recipeService;
+		public RecipeController() {
+		super();
+	}
 
-		public RecipeController(RecipeService recipeService) {
+		private RecipeService recipeService;
+		
+		@Autowired
+		public RecipeController(RecipeService recipeService){
+			super();
 			this.recipeService = recipeService;
 		}
 
-		@GetMapping("/recipe")
+		@GetMapping("/getAllRecipes")
 		public List<Recipe> getAllRecipe() {
 			return recipeService.getAllRecipe();
 		}
-
-		@PostMapping("/recipe")
-		public Recipe addNewRecipe(@RequestBody Recipe recipe) {
-			return recipeService.addNewRecipe(recipe);
+		@GetMapping("/get{id}")
+		public Recipe getRecipe(@PathVariable Long id) {
+			return this.recipeService.findRecipebyId(id);
 		}
 
-		@PutMapping("/recipe")
-		public Recipe updateRecipe(@RequestBody Recipe recipe) {
-			return recipeService.updateRecipe(recipe);
+		@PostMapping("/createRecipe")
+		public Recipe createRecipe(@RequestBody Recipe recipe) {
+			return recipeService.createRecipe(recipe);
 		}
 
-		@DeleteMapping("/recipe/{id}")
-		public String deleteRecipe(@PathVariable(value = "id") Long id) {
-			return recipeService.deleteRecipe(id);
+		@PutMapping("/updateRecipe")
+		public Recipe updateRecipe(@PathParam("id") Long id, @RequestBody Recipe recipe) {
+			return this.recipeService.updateRecipe(recipe);
+		}
+
+		@DeleteMapping("/deleteRecipe/{id}")
+		public void deleteRecipe(@PathVariable(value = "id") Long id) {
+			 this.recipeService.deleteRecipe(id);
+			
 		}
 
 	}

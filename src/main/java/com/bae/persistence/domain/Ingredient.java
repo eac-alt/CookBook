@@ -22,6 +22,8 @@ public class Ingredient  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ingredientId;
 	private String ingredientName;
+	private String ingredientAmount; 
+
 	
 
 	@ManyToMany(mappedBy = "recipeHasIngredient")
@@ -49,6 +51,12 @@ public class Ingredient  {
 	public String toString() {
 		return "Ingredient [ingredientId=" + ingredientId + ", ingredientName=" + ingredientName
 				+ ", recipeHasIngredients=" + ingredientIsInRecipe + "]";
+	}
+	public String getIngredientAmount() {
+		return ingredientAmount;
+	}
+	public void setIngredientAmount(String ingredientAmount) {
+		this.ingredientAmount = ingredientAmount;
 	}
 	
 	 

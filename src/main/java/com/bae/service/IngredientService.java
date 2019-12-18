@@ -2,30 +2,48 @@ package com.bae.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bae.exceptions.IngredientNotFoundException;
+import com.bae.exceptions.RecipeNotFoundException;
 import com.bae.persistence.domain.Ingredient;
+import com.bae.persistence.domain.Recipe;
+import com.bae.persistence.repository.IngredientRepository;
+
 @Service
 public class IngredientService {
+	
+	private IngredientRepository repository;
+	
+		@Autowired
+		public IngredientService(IngredientRepository repository) {
+			this.repository = repository;
+		}
 
-	public static List<Ingredient> getAllIngredient() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		public List<Ingredient> getAllIngredients() {
+			return repository.findAll();
+		}
 
-	public Ingredient addNewIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		public Ingredient createIngredient(Ingredient ingredient) {
+			return this.repository.save(ingredient);
+		}
 
-	public Ingredient updateIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		public Ingredient updateIngredient(Ingredient ingredient) {
+			return repository.save(ingredient);
+		}
 
-	public String deleteIngredient(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		public boolean deleteIngredient(Long id) {
+			if (!this.repository.existsById(id)) {
+					throw new IngredientNotFoundException();
+			}
+			this.repository.deleteById(id);
+			return this.repository.existsById(id);
+		}
 
+		public Ingredient findIngredientbyId(Long id) {
+			return this.repository.findById(id).orElseThrow(
+					()-> new IngredientNotFoundException()); 
+		}
 }
+		
