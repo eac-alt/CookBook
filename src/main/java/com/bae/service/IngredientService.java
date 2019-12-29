@@ -27,7 +27,7 @@ public class IngredientService {
 		public Ingredient createIngredient(Ingredient ingredient) {
 
 				if (!ingredient.getIngredientName().matches("[a-zA-Z]+{5,30}")){
-					throw new IllegalStateException("Invalid Ingredient Name. Please enter a ingredient name between 5 and 30 letters from A to Z.");
+					throw new IllegalStateException("Invalid Ingredient Name. Please enter an ingredient name between 5 and 30 letters from A to Z.");
 				}			
 			return this.repository.save(ingredient);
 		}

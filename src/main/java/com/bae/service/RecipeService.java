@@ -1,5 +1,6 @@
 package com.bae.service;
 
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -31,16 +32,21 @@ public class RecipeService {
 		
 
 		if (!recipe.getRecipeMethod().matches("^\\W*(?:\\w+\\b\\W*){100,600}$")) {
-			throw new IllegalStateException();
+			throw new IllegalStateException("Invalid Recipe Method. Please enter a recipe method between 100 and 600 words.");
 		}
 		
 		else if (!Double.toString(recipe.getCookTime()).matches("^(1[0-2]|0?[1-9]):([0-5]?[0-9])$")) {
-			throw new IllegalStateException();
-
+			throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH:MM format.");
+			
 		}
+			
+		else if (!Double.toString(recipe.getPrepTime()).matches("^(1[0-2]|0?[1-9]):([0-5]?[0-9])$")) {
+				throw new 	IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH:MM format."); 
+			}
+
+	
 		return this.repository.save(recipe);
 }
-		
 		
 
 
