@@ -41,7 +41,7 @@ class RecipeControllerUnitTest {
 	
 	final long id = 1L;
 	
-	@Before(value = "") 
+	@Before
 	public void init() {
 		this.recipeList = new ArrayList<>();
 		this.recipeList.add(testRecipe);
