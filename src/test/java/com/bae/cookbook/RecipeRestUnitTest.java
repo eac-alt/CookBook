@@ -101,7 +101,7 @@ class RecipeControllerUnitTest {
 		Recipe updatedRecipe = new Recipe(newRecipe.getRecipeTitle(), newRecipe.getRecipeMethod(), newRecipe.getCookTime(), newRecipe.getPrepTime(), newRecipe.getCookTime(), newRecipe.getCostPerUnit());
 		updatedRecipe.setRecipeId(this.id);
 		
-		when(this.service.updateRecipe(this.id)).thenReturn(Optional.of(this.testRecipeWithId));
+		when(this.service.updateRecipe(newRecipe, this.id)).thenReturn(updatedRecipe);
 		
 		assertEquals(updatedRecipe, this.controller.updateRecipe(newRecipe,this.id));
 		
