@@ -39,8 +39,8 @@ public class CategoryService {
 	}
 
 	public Category findCategorybyId(Long id) {
-		return this.repository.findById(id).orElseThrow(
-				()-> new CategoryNotFoundException()); 
+		return this.repository.findById(id).orElseThrow(CategoryNotFoundException::new);
+	
 	}
 }
 	

@@ -1,5 +1,4 @@
 package com.bae.exceptions;
-import org.springframework.http.HttpStatus;
 
 public class CategoryNotFoundException extends RuntimeException {
 	

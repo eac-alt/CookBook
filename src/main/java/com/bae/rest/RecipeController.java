@@ -36,11 +36,11 @@ public class RecipeController {
 
 		@GetMapping("/getAllRecipes")
 		public List<Recipe> getAllRecipe() {
-			return recipeService.getAllRecipe();
+			return recipeService.findAllRecipe();
 		}
 		@GetMapping("/get{id}")
 		public Recipe getRecipe(@PathVariable Long id) {
-			return this.recipeService.findRecipebyId(id);
+			return this.recipeService.findRecipeById(id);
 		}
 
 		@PostMapping("/createRecipe")
@@ -50,7 +50,7 @@ public class RecipeController {
 
 		@PutMapping("/updateRecipe")
 		public Recipe updateRecipe(@PathParam("id") Long id, @RequestBody Recipe recipe) {
-			return this.recipeService.updateRecipe(recipe);
+			return this.recipeService.updateRecipe(recipe, id);
 		}
 
 		@DeleteMapping("/deleteRecipe/{id}")

@@ -9,5 +9,6 @@ import com.bae.persistence.domain.Recipe;
 
 @Repository
 	public interface RecipeRepository extends JpaRepository<Recipe, Long> {
-
+	
+	List<Recipe> findByTitle(String Title);
 }

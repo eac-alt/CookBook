@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bae.persistence.domain.Ingredient;
-import com.bae.persistence.domain.Recipe;
-import com.bae.service.IngredientService;
 import com.bae.service.IngredientService;
 
 @RestController 
@@ -27,9 +25,9 @@ public class IngredientController {
 	private IngredientService ingredientService;
 	
 	@Autowired
-	public IngredientController(IngredientService IngredientService){
+	public IngredientController(IngredientService ingredientService){
 		super();
-		this.ingredientService = IngredientService;
+		this.ingredientService = ingredientService;
 	}
 
 	@GetMapping("/getAllIngredients")

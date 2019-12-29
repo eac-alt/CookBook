@@ -74,7 +74,7 @@ public class RecipeServiceUnitTest {
 	public void findRecipeByIdTest() {
 		when(this.repository.findById(id)).thenReturn(Optional.of(this.testRecipeWithID));
 		
-		assertEquals(this.testRecipeWithID, this.service.findRecipebyId(this.id));
+		assertEquals(this.testRecipeWithID, this.service.findRecipeById(this.id));
 		
 		verify(this.repository,times(1)).findById(this.id);
 			
@@ -86,9 +86,9 @@ public class RecipeServiceUnitTest {
 	public void readRecipeTest( ) {
 		when(repository.findAll()).thenReturn(this.recipeList);
 		
-		assertFalse("No Recipes found by Controller")this.service.getAllRecipe().isEmpty());
+		assertFalse("No Recipes found by Controller", this.service.findAllRecipe().isEmpty());
 		
-		verify(repository,times(1).findAll();
+		verify(repository,times(1)).findAll();
 		
 	}
 	
@@ -97,17 +97,17 @@ public class RecipeServiceUnitTest {
 	public void updateRecipeTest() {
 		
 		Recipe newRecipe = new Recipe ("Chocolate Cake", "1.Mix ingredients, 2.Transfer mixture into baking tin 3. Bake at 170", 1.05, 0.45, 0.75);
-		Recipe updatedRecipe = new Recipe(newRecipe.getRecipeTitle(), newRecipe.getRecipeMethod(), newRecipe.getCookTime(), newRecipe.getPrepTime(), newRecipe.getCookTime(), newRecipe.getCostPerUnit());
+		Recipe updatedRecipe = new Recipe(newRecipe.getRecipeTitle(), newRecipe.getRecipeMethod(), newRecipe.getPrepTime(), newRecipe.getCookTime(), newRecipe.getPricePerUnit());
 		updatedRecipe.setRecipeId(this.id);
 		
 		when(this.repository.findById(this.id)).thenReturn(Optional.of(this.testRecipeWithID));
 		
 		when(this.repository.save(updatedRecipe)).thenReturn(updatedRecipe);
 		
-		assertEquals(updatedRecipe, this.service.updateRecipe(newRecipe,this.id));
+		assertEquals(updatedRecipe, this.service.updateRecipe(newRecipe, this.id));
 		
-		verify(this.repository, times(1).findRecipeById(1L));
-		verify(this.repository,times(1).save(updatedRecipe));
+		verify(this.repository, times(1)).findById(1L);
+		verify(this.repository,times(1)).save(updatedRecipe);
 		
 	}
 

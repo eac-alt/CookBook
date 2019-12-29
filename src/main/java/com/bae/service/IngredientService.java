@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.IngredientNotFoundException;
-import com.bae.exceptions.RecipeNotFoundException;
 import com.bae.persistence.domain.Ingredient;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.IngredientRepository;
@@ -26,6 +25,10 @@ public class IngredientService {
 		}
 
 		public Ingredient createIngredient(Ingredient ingredient) {
+
+				if (!ingredient.getIngredientName().matches("[a-zA-Z]+{5,30}")){
+					throw new IllegalStateException("Invalid Ingredient Name. Please enter a ingredient name between 5 and 30 letters from A to Z.");
+				}			
 			return this.repository.save(ingredient);
 		}
 
@@ -42,8 +45,7 @@ public class IngredientService {
 		}
 
 		public Ingredient findIngredientbyId(Long id) {
-			return this.repository.findById(id).orElseThrow(
-					()-> new IngredientNotFoundException()); 
+			return this.repository.findById(id).orElseThrow( IngredientNotFoundException:: new); 
 		}
 }
 		

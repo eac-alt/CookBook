@@ -37,7 +37,7 @@ class RecipeControllerUnitTest {
 	
 	private Recipe testRecipe;
 	
-	private Recipe testRecipeWithID;
+	private Recipe testRecipeWithId;
 	
 	final long id = 1L;
 	
@@ -46,16 +46,16 @@ class RecipeControllerUnitTest {
 		this.recipeList = new ArrayList<>();
 		this.recipeList.add(testRecipe);
 		this.testRecipe = new Recipe ("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , 1.0 , 0.30, 0.50 );
-	    this.testRecipeWithID(id);
+	    this.testRecipeWithId.setRecipeId(id);
 		
 
 	}
 
 	@Test
 	public void createRecipeTest() {
-		when (this.service.save(testRecipe)).thenReturn(testRecipeWithID);
+		when (this.service.save(testRecipe)).thenReturn(testRecipeWithId);
 		
-		assertEquals(this.testRecipeWithID,this.controller.createRecipe(testRecipe));
+		assertEquals(this.testRecipeWithId,this.controller.createRecipe(testRecipe));
 		
 		verify(this.service, times(1)).save(this.testRecipe);
 		
@@ -72,11 +72,11 @@ class RecipeControllerUnitTest {
 	
 	@Test
 	public void findRecipeByIdTest() {
-		when(this.service.findRecipeById)(this.id)).thenReturn(this.testRecipeWithID));
+		when(this.service.findRecipeById)(this.id)).thenReturn(this.testRecipeWithId));
 		
-		assertEquals(this.testRecipeWithID, this.controller.getRecipe(this.id));
+		assertEquals(this.testRecipeWithId, this.controller.getRecipe(this.id));
 		
-		verify(this.service,times(1)).findById(this.id);
+		verify(this.service,times(1)).findRecipeById(this.id);
 			
 			
 	}
@@ -89,7 +89,7 @@ class RecipeControllerUnitTest {
 		
 		assertFalse("No Recipes found by Controller")this.controller.getAllRecipe().isEmpty());
 		
-		verify(service,times(1).findAllRecipes(); 
+		verify(service,times(1).findAllRecipe(); 
 		
 	}
 	
@@ -101,7 +101,7 @@ class RecipeControllerUnitTest {
 		Recipe updatedRecipe = new Recipe(newRecipe.getRecipeTitle(), newRecipe.getRecipeMethod(), newRecipe.getCookTime(), newRecipe.getPrepTime(), newRecipe.getCookTime(), newRecipe.getCostPerUnit());
 		updatedRecipe.setRecipeId(this.id);
 		
-		when(this.service.updateRecipe(this.id)).thenReturn(Optional.of(this.testRecipeWithID));
+		when(this.service.updateRecipe(this.id)).thenReturn(Optional.of(this.testRecipeWithId));
 		
 		assertEquals(updatedRecipe, this.controller.updateRecipe(newRecipe,this.id));
 		

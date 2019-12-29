@@ -20,10 +20,14 @@ public class Recipe {
 		super();
 	}
 
-	public Recipe(String recipeTitle, String recipeMethod, double d, double e, double f) {
+
+	public Recipe(String recipeTitle, String recipeMethod, double prepTime, double cookTime, double pricePerUnit) {
 		super();
 		this.recipeTitle = recipeTitle;
 		this.recipeMethod = recipeMethod;
+		this.prepTime = prepTime;
+		this.cookTime = cookTime;
+		this.pricePerUnit = pricePerUnit;
 	}
 
 	@Id
@@ -73,23 +77,23 @@ public class Recipe {
 		return prepTime;
 	}
 
-	public void setPrepTime(float prepTime) {
-		this.prepTime = prepTime;
+	public void setPrepTime(double d) {
+		this.prepTime = d;
 	}
 
 	public double getCookTime() {
 		return cookTime;
 	}
 
-	public void setCookTime(float cookTime) {
-		this.cookTime = cookTime;
+	public void setCookTime(double d) {
+		this.cookTime = d;
 	}
 
 	public double getPricePerUnit() {
 		return pricePerUnit;
 	}
 
-	public void setPricePerUnit(float pricePerUnit) {
+	public void setPricePerUnit(double pricePerUnit) {
 		this.pricePerUnit = pricePerUnit;
 	}
 

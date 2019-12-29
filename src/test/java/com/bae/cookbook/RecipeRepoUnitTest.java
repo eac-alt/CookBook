@@ -1,9 +1,11 @@
 package com.bae.cookbook;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.aspectj.lang.annotation.Before;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -17,7 +19,6 @@ import com.bae.persistence.repository.RecipeRepository;
 class RecipeRepoUnitTest {
 
 
-	private static final Object TEST_RECIPE = null;
 
 	@Autowired
 	private RecipeRepository repository;
@@ -36,7 +37,7 @@ class RecipeRepoUnitTest {
 
 	@Test
 	public void testFindByName() {
-		assertThat(this.repository.findById(this.TEST_TITLE)).containsExactly(this.testSavedRecipe);
+		assertThat(this.repository.findByTitle(this.TEST_TITLE)).containsExactly(this.testSavedRecipe);
 	}
 
 }
