@@ -89,7 +89,7 @@ class RecipeControllerUnitTest {
 		
 		assertFalse("No Recipes found by Controller", this.controller.getAllRecipe().isEmpty());
 		
-		verify(service,times(1).findAllRecipe(); 
+		verify(service, times(1)).findAllRecipe(); 
 		
 	}
 	
