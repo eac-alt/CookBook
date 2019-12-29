@@ -53,7 +53,7 @@ class RecipeControllerUnitTest {
 
 	@Test
 	public void createRecipeTest() {
-		when (this.service.save(testRecipe)).thenReturn(testRecipeWithId);
+		when (this.service.createRecipe(testRecipe)).thenReturn(testRecipeWithId);
 		
 		assertEquals(this.testRecipeWithId,this.controller.createRecipe(testRecipe));
 		
