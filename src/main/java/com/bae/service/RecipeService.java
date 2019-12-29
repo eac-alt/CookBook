@@ -33,7 +33,6 @@ public class RecipeService {
 		if (!recipe.getRecipeMethod().matches("^\\W*(?:\\w+\\b\\W*){100,600}$")) {
 			throw new IllegalStateException();
 		}
-		return this.repository.save(recipe);
 		
 		if (!recipe.getCookTime().matches("^(1[0-2]|0?[1-9]):([0-5]?[0-9])$")) {
 			throw new IllegalStateException();
