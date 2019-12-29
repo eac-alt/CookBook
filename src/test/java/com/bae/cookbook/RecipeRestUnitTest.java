@@ -57,7 +57,7 @@ class RecipeControllerUnitTest {
 		
 		assertEquals(this.testRecipeWithId,this.controller.createRecipe(testRecipe));
 		
-		verify(this.service, times(1)).save(this.testRecipe);
+		verify(this.service, times(1)).createRecipe(this.testRecipe);
 		
 	}
 	
