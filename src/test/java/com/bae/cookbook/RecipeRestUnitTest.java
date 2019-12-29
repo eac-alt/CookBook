@@ -65,7 +65,7 @@ class RecipeControllerUnitTest {
 	public void deleteRecipeTest() {
 		this.controller.deleteRecipe(id);
 		
-		verify(this.service,times(1)).deleteById(id); //verifies that method is called at least once 
+		verify(this.service, times(1)).deleteRecipe(this.id); //verifies that method is called at least once 
 		
 		
 	}
