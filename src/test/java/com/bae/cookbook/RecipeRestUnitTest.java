@@ -23,7 +23,7 @@ import com.bae.persistence.repository.RecipeRepository;
 import com.bae.rest.RecipeController;
 import com.bae.service.RecipeService;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 class RecipeControllerUnitTest {
 
 	@InjectMocks
