@@ -28,7 +28,6 @@ public class RecipeService {
 		if (!recipe.getRecipeTitle().matches("[a-zA-Z]+{5,30}")) {
 			throw new IllegalStateException("Invalid Recipe Name. Please enter a recipe name between 5 and 30 letters from A to Z.");
 		}
-		return this.repository.save(recipe);
 		
 
 		if (!recipe.getRecipeMethod().matches("^\\W*(?:\\w+\\b\\W*){100,600}$")) {
