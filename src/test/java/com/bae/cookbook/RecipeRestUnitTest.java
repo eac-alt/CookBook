@@ -105,7 +105,7 @@ class RecipeControllerUnitTest {
 		
 		assertEquals(updatedRecipe, this.controller.updateRecipe(this.id, newRecipe));
 		
-		verify(this.service, times(1).updateRecipe(1L));
+		verify(this.service, times(1)).updateRecipe(newRecipe, this.id);
 		
 	}
 
