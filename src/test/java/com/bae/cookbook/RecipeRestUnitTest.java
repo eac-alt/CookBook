@@ -87,7 +87,7 @@ class RecipeControllerUnitTest {
 		
 		when(service.findAllRecipe()).thenReturn(this.recipeList);
 		
-		assertFalse("No Recipes found by Controller")this.controller.getAllRecipe().isEmpty());
+		assertFalse("No Recipes found by Controller", this.controller.getAllRecipe().isEmpty());
 		
 		verify(service,times(1).findAllRecipe(); 
 		
