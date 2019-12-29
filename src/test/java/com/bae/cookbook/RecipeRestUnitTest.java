@@ -72,7 +72,7 @@ class RecipeControllerUnitTest {
 	
 	@Test
 	public void findRecipeByIdTest() {
-		when(this.service.findRecipeById)(this.id)).thenReturn(this.testRecipeWithId));
+		when(this.service.findRecipeById(this.id)).thenReturn(this.testRecipeWithId);
 		
 		assertEquals(this.testRecipeWithId, this.controller.getRecipe(this.id));
 		
