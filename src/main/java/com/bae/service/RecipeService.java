@@ -34,7 +34,7 @@ public class RecipeService {
 			throw new IllegalStateException();
 		}
 		
-		if (!recipe.getCookTime().matches("^(1[0-2]|0?[1-9]):([0-5]?[0-9])$")) {
+		else if (!Double.toString(recipe.getCookTime()).matches("^(1[0-2]|0?[1-9]):([0-5]?[0-9])$")) {
 			throw new IllegalStateException();
 
 		}
