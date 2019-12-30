@@ -19,12 +19,8 @@ import com.bae.persistence.domain.Recipe;
 import com.bae.service.RecipeService;
 
 @RestController 
-@RequestMapping("/recipeapp")
+@RequestMapping("/Recipeapp")
 public class RecipeController {
-	
-		public RecipeController() {
-		super();
-	}
 
 		private RecipeService recipeService;
 		

@@ -37,7 +37,7 @@ class RecipeRepoUnitTest {
 
 	@Test
 	public void testFindByName() {
-		assertThat(this.repository.findByTitle(this.TEST_TITLE)).containsExactly(this.testSavedRecipe);
-	}
+		assertThat(this.repository.findByRecipeTitle(this.TEST_TITLE)).containsExactly(this.testSavedRecipe);
+	} 
 
 }

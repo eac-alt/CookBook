@@ -39,6 +39,7 @@ public class RecipeServiceUnitTest {
 	
 	private Recipe testRecipeWithID;
 	
+	
 	final long id = 1L;
 	
 	@Before(value = "") 
@@ -46,8 +47,8 @@ public class RecipeServiceUnitTest {
 		this.recipeList = new ArrayList<>();
 		this.recipeList.add(testRecipe);
 		this.testRecipe = new Recipe ("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , 1.0 , 0.30, 0.50 );
-	    this.testRecipeWithID.setRecipeId(id);;
-		
+	    this.testRecipeWithID.setRecipeId(id);
+	    
 
 	}
 
@@ -57,7 +58,7 @@ public class RecipeServiceUnitTest {
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
 		
-		verify(this.repository, times(1)).save (this.testRecipe);
+		verify(this.repository, times(1)).save (this.testRecipe); 
 		
 	}
 	
