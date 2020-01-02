@@ -1,4 +1,4 @@
-package recipeServiceUnitTest;
+package com.bae.service;
 
 
 import static org.junit.Assert.assertEquals;
