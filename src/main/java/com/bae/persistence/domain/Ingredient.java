@@ -55,6 +55,31 @@ public class Ingredient  {
 		this.ingredientAmount = ingredientAmount;
 	}
 	
-	 
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ingredient other = (Ingredient) obj;
+		if (ingredientName == null) {
+			if (other.ingredientName != null)
+				return false;
+		} else if (!ingredientName.equals(other.ingredientName))
+			return false;
+		if (ingredientAmount == null) {
+			if (other.ingredientAmount != null)
+				return false;
+		} else if (!ingredientAmount.equals(other.ingredientAmount))
+			return false;
+		if (ingredientId != other.ingredientId)
+			return false;
+	
+		return true;
+	}
+
 	
 }

@@ -100,7 +100,32 @@ public class Recipe {
 				+ ", prepTime=" + prepTime + ", cookTime=" + cookTime + ", pricePerUnit=" + pricePerUnit
 				+ "]";
 	}
-
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Recipe other = (Recipe) obj;
+		if (recipeTitle == null) {
+			if (other.recipeTitle != null)
+				return false;
+		} else if (!recipeTitle.equals(other.recipeTitle))
+			return false;
+		if (recipeMethod == null) {
+			if (other.recipeMethod != null)
+				return false;
+		} else if (!recipeMethod.equals(other.recipeMethod))
+			return false;
+		if (recipeId != other.recipeId)
+			return false;
+	
+		return true;
+	}
 
 }
+
+	

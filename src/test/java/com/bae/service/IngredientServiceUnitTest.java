@@ -37,9 +37,7 @@ public class IngredientServiceUnitTest {
 	
 	private Ingredient testIngredientWithID;
 	
-	
-	
-	final long id = 1L;
+	private final long id = 1L;
 	
 	@Before
 	public void init() {
