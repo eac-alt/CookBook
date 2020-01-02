@@ -52,7 +52,7 @@ public class IngredientServiceUnitTest {
 
 	@Test
 	public void createIngredientTest() {
-		when (this.repository.save(testIngredient)).thenReturn(testIngredientWithID);
+		when (this.repository.save(this.testIngredient)).thenReturn(this.testIngredientWithID);
 		
 		assertEquals(this.testIngredientWithID,this.service.createIngredient(testIngredient));
 		

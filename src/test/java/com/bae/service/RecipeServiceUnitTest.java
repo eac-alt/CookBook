@@ -20,7 +20,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.RecipeRepository;
-import com.bae.service.RecipeService;
+
 
  @RunWith(MockitoJUnitRunner.class)
 public class RecipeServiceUnitTest {
@@ -55,7 +55,7 @@ public class RecipeServiceUnitTest {
 
 	@Test
 	public void createRecipeTest() {
-		when (this.repository.save(testRecipe)).thenReturn(testRecipeWithID);
+		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
 		
