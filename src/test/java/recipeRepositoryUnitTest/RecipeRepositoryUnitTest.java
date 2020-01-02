@@ -1,4 +1,4 @@
-package com.bae.cookbook;
+package recipeRepositoryUnitTest;
 
 
 
@@ -7,16 +7,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.RecipeRepository;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 @DataJpaTest
-class RecipeRepoUnitTest {
+class RecipeRepositoryUnitTest {
 
 
 

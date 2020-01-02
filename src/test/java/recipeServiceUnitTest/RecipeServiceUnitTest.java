@@ -1,9 +1,8 @@
-package com.bae.cookbook;
+package recipeServiceUnitTest;
 
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -17,13 +16,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.RecipeRepository;
 import com.bae.service.RecipeService;
 
- @RunWith(SpringRunner.class)
+ @RunWith(MockitoJUnitRunner.class)
 public class RecipeServiceUnitTest {
 
 
@@ -39,6 +38,8 @@ public class RecipeServiceUnitTest {
 	
 	private Recipe testRecipeWithID;
 	
+	private Recipe testRecipeMatch;
+	
 	
 	final long id = 1L;
 	
@@ -48,6 +49,7 @@ public class RecipeServiceUnitTest {
 		this.recipeList.add(testRecipe);
 		this.testRecipe = new Recipe ("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , 1.0 , 0.30, 0.50 );
 	    this.testRecipeWithID.setRecipeId(id);
+	    this.testRecipeMatch = new Recipe();
 	    
 
 	}
@@ -59,6 +61,13 @@ public class RecipeServiceUnitTest {
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
 		
 		verify(this.repository, times(1)).save (this.testRecipe); 
+	}
+		
+	@Test 
+	public void RecipeMatcherTest() {
+		when (this.repository.save(testRecipe)).thenReturn(testRecipeWithID);
+		
+		assertTrue(testRecipeMatch.isTrue.)
 		
 	}
 	

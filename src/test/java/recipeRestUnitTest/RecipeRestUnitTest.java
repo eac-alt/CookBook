@@ -1,4 +1,4 @@
-package com.bae.cookbook;
+package recipeRestUnitTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -17,7 +17,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.RecipeRepository;
@@ -25,7 +24,7 @@ import com.bae.rest.RecipeController;
 import com.bae.service.RecipeService;
 
 @RunWith(MockitoJUnitRunner.class)
-class RecipeControllerUnitTest {
+class RecipeRestUnitTest {
 
 	@InjectMocks
 	private RecipeController controller;
