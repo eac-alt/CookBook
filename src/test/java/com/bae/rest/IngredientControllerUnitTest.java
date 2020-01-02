@@ -20,7 +20,7 @@ import com.bae.persistence.domain.Ingredient;
 import com.bae.service.IngredientService;
 
 @RunWith(MockitoJUnitRunner.class)
-class IngredientControllerUnitTest {
+public class IngredientControllerUnitTest {
 
 	@InjectMocks
 	private IngredientController controller;

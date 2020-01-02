@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bae.persistence.domain.Ingredient;
 
-@RunWith(MockitoJUnitRunner.class)
-class IngredientRepositoryUnitTest {
+	@RunWith(MockitoJUnitRunner.class)
+	public class IngredientRepositoryUnitTest {
 
 	
 	@Autowired

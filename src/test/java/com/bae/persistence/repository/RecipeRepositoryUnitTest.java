@@ -11,10 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bae.persistence.domain.Recipe;
 
-class IngredientRepositoryUnitTest {
 
 	@RunWith(MockitoJUnitRunner.class)
-	class RecipeRepositoryUnitTest {
+	public class RecipeRepositoryUnitTest {
 
 
 

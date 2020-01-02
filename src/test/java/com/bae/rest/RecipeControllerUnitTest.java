@@ -21,7 +21,7 @@ import com.bae.rest.RecipeController;
 import com.bae.service.RecipeService;
 
 @RunWith(MockitoJUnitRunner.class)
-class RecipeControllerUnitTest {
+public class RecipeControllerUnitTest {
 
 	@InjectMocks
 	private RecipeController controller;

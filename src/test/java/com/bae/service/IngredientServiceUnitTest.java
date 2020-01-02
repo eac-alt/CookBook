@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.aspectj.lang.annotation.Before;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -41,7 +41,7 @@ public class IngredientServiceUnitTest {
 	
 	final long id = 1L;
 	
-	@Before(value = "") 
+	@Before
 	public void init() {
 		this.ingredientList = new ArrayList<>();
 		this.ingredientList.add(testIngredient);
