@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.bae.exceptions.IngredientNotFoundException;
 import com.bae.exceptions.RecipeNotFoundException;
 import com.bae.persistence.domain.Ingredient;
-import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.IngredientRepository;
 
 @Service

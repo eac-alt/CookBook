@@ -23,24 +23,24 @@ public class RecipeService {
 	}
 
 	public Recipe createRecipe(Recipe recipe) {
-		if (!recipe.getRecipeTitle().matches("^[A-Za-z]{5,30}$")) {
+		if (!recipe.getRecipeTitle().matches("^[A-Za-z]{5,30}$")) { // Passes recipeTitle is a single line - extend to user can type more than one word
 			throw new IllegalStateException("Invalid Recipe Name. Please enter a recipe name between 5 and 30 letters from A to Z.");
 		}
 		
 
-		else if (!recipe.getRecipeMethod().matches("^\\W*(?:\\w+\\b\\W*){100,600}$")) {
-			throw new IllegalStateException("Invalid Recipe Method. Please enter a recipe method between 100 and 600 words.");
+		else if (!recipe.getRecipeMethod().matches("^(?:\\w+\\W+){10,600}$")) { // now passes :-) 
+			throw new IllegalStateException("Invalid Recipe Method. Please enter a recipe method between 10 and 600 words.");
 		}
 		
-		else if (!Double.toString(recipe.getCookTime()).matches("^(20|21|22|23|[01]\\d|\\d)((:[0-5]\\d){1,2})$")) {
-			throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH:MM format.");
+		else if (!Double.toString(recipe.getCookTime()).matches("^-?\d*\.\d{2}$")) { 
+			throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH.MM format.");
 			
 		}
 			
-		else if (!Double.toString(recipe.getPrepTime()).matches("^(20|21|22|23|[01]\\d|\\d)((:[0-5]\\d){1,2})$")) {
-				throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH:MM format."); 
+		else if (!Double.toString(recipe.getPrepTime()).matches("^-?\d*\.\d{2}$")) {
+				throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH.MM format."); 
 			}
-		else if (!Double.toString(recipe.getPricePerUnit()).matches("/^[0-9]+(\\.[0-9]{1,2})?$")) {
+		else if (!Double.toString(recipe.getPricePerUnit()).matches("^-?\d*\.\d{2}$")) {
 				throw new IllegalStateException("Invalid Price per unit. Please enter a valid Price per unit in the ££.pp format. ");
 		}
 	
