@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -42,7 +42,7 @@ public class IngredientControllerUnitTest {
 		this.ingredientList = new ArrayList<>();
 		this.ingredientList.add(testIngredient);
 		this.testIngredient = new Ingredient ("Chocolate", "500g  " );
-	       this.testIngredientWithId = new Ingredient(this.testIngredient.getIngredientName(), this.testIngredient.getIngredientAmount());
+	    this.testIngredientWithId = new Ingredient(this.testIngredient.getIngredientName(), this.testIngredient.getIngredientAmount());
 
 	    this.testIngredientWithId.setIngredientId(id);
 		

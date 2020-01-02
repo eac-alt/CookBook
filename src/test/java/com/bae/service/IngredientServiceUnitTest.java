@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -46,6 +46,7 @@ public class IngredientServiceUnitTest {
 		this.ingredientList = new ArrayList<>();
 		this.ingredientList.add(testIngredient);
 		this.testIngredient = new Ingredient ("Chocolate", "500g" );
+		this.testIngredientWithID = new Ingredient(testIngredient.getIngredientName(),testIngredient.getIngredientAmount()); 
 	    this.testIngredientWithID.setIngredientId(id);
 	    
 

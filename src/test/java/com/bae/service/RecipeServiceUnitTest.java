@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -47,6 +47,7 @@ public class RecipeServiceUnitTest {
 		this.recipeList = new ArrayList<>();
 		this.recipeList.add(testRecipe);
 		this.testRecipe = new Recipe ("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , 1.0 , 0.30, 0.50 );
+		this.testRecipeWithID = new Recipe(testRecipe.getRecipeTitle(),testRecipe.getRecipeMethod(),testRecipe.getCookTime(),testRecipe.getPrepTime(),testRecipe.getPricePerUnit());
 	    this.testRecipeWithID.setRecipeId(id);
 	    
 
