@@ -8,12 +8,15 @@ import javax.persistence.Id;
 @Entity
 public class Ingredient  {
 
-	public Ingredient(String ingredientName) {
-		super();
-		this.ingredientName = ingredientName;
-	}
 	public Ingredient() {
 		super();
+	}
+
+	public Ingredient(String ingredientName , String ingredientAmount) {
+		super();
+		this.ingredientName = ingredientName;
+		this.ingredientAmount = ingredientAmount;
+		
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +24,7 @@ public class Ingredient  {
 	private String ingredientName;
 	private String ingredientAmount; 
 
+	
 	
 
 	//@ManyToMany(mappedBy = "recipeHasIngredient")

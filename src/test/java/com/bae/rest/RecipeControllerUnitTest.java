@@ -1,15 +1,13 @@
-package recipeRestUnitTest;
+package com.bae.rest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -19,12 +17,11 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.bae.persistence.domain.Recipe;
-import com.bae.persistence.repository.RecipeRepository;
 import com.bae.rest.RecipeController;
 import com.bae.service.RecipeService;
 
 @RunWith(MockitoJUnitRunner.class)
-class RecipeRestUnitTest {
+class RecipeControllerUnitTest {
 
 	@InjectMocks
 	private RecipeController controller;
@@ -85,7 +82,7 @@ class RecipeRestUnitTest {
 	
 	@Test
 	
-	public void getAllRecipesTest( ) {
+	public void findAllRecipeTest( ) {
 		
 		when(service.findAllRecipe()).thenReturn(this.recipeList);
 		

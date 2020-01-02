@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.IngredientNotFoundException;
+import com.bae.exceptions.RecipeNotFoundException;
 import com.bae.persistence.domain.Ingredient;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.IngredientRepository;
@@ -20,20 +21,24 @@ public class IngredientService {
 			this.repository = repository;
 		}
 
-		public List<Ingredient> getAllIngredients() {
+		public List<Ingredient> findAllIngredient() {
 			return repository.findAll();
 		}
 
 		public Ingredient createIngredient(Ingredient ingredient) {
 
-				if (!ingredient.getIngredientName().matches("[a-zA-Z]+{5,30}")){
+				if (!ingredient.getIngredientName().matches("^[A-Za-z]{3,30}$")){
 					throw new IllegalStateException("Invalid Ingredient Name. Please enter an ingredient name between 5 and 30 letters from A to Z.");
 				}			
 			return this.repository.save(ingredient);
 		}
 
-		public Ingredient updateIngredient(Ingredient ingredient) {
-			return repository.save(ingredient);
+		public Ingredient updateIngredient(Ingredient ingredient, long id){
+			Ingredient toUpdate = this.repository.findById(id).orElseThrow(RecipeNotFoundException::new);
+			toUpdate.setIngredientName(ingredient.getIngredientName());
+			toUpdate.setIngredientAmount(ingredient.getIngredientAmount());
+			return this.repository.save(toUpdate);
+			
 		}
 
 		public boolean deleteIngredient(Long id) {
@@ -44,7 +49,7 @@ public class IngredientService {
 			return this.repository.existsById(id);
 		}
 
-		public Ingredient findIngredientbyId(Long id) {
+		public Ingredient findIngredientById(Long id) {
 			return this.repository.findById(id).orElseThrow( IngredientNotFoundException:: new); 
 		}
 }

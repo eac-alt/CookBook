@@ -32,11 +32,11 @@ public class IngredientController {
 
 	@GetMapping("/getAllIngredients")
 	public List<Ingredient> getAllIngredients() {
-		return ingredientService.getAllIngredients();
+		return ingredientService.findAllIngredient();
 	}
 	@GetMapping("/get{id}")
 	public Ingredient getIngredient(@PathVariable Long id) {
-		return this.ingredientService.findIngredientbyId(id);
+		return this.ingredientService.findIngredientById(id);
 	}
 
 	@PostMapping("/createIngredient")
@@ -46,7 +46,7 @@ public class IngredientController {
 
 	@PutMapping("/updateIngredient")
 	public Ingredient updateIngredient(@PathParam("id") Long id, @RequestBody Ingredient ingredient) {
-		return this.ingredientService.updateIngredient(ingredient);
+		return this.ingredientService.updateIngredient(ingredient, id);
 	}
 
 	@DeleteMapping("/deleteIngredient/{id}")
