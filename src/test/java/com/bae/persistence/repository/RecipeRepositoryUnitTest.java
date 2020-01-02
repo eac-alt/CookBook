@@ -37,4 +37,4 @@ import com.bae.persistence.domain.Recipe;
 			assertThat(this.repository.findByRecipeTitle(this.TEST_TITLE)).containsExactly(this.testSavedRecipe);
 		} 
 	}
-}
+
