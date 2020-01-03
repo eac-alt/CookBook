@@ -88,6 +88,8 @@ public class RecipeServiceUnitTest {
 	
 	@Test
 	public void createRecipeTitleTest() {
+		testRecipe.setRecipeTitle("Sponge");
+		testRecipeWithID.setRecipeTitle("Sponge");
 		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
@@ -118,7 +120,9 @@ public class RecipeServiceUnitTest {
 	}
 	
 	@Test
-	public void createRecipeMethodtTest() {
+	public void createRecipeMethodTest() {
+		testRecipe.setRecipeMethod("For the vanilla ice cream, pour the cream and milk into a heavy-based saucepan.");
+		testRecipeWithID.setRecipeMethod("For the vanilla ice cream, pour the cream and milk into a heavy-based saucepan.");
 		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
@@ -126,6 +130,8 @@ public class RecipeServiceUnitTest {
 		verify(this.repository, times(1)).save (this.testRecipe); 
 	}
 	
+	
+
 	@Test
 	public void deleteRecipeTest() {
 		when(this.repository.existsById(id)).thenReturn(true,false);

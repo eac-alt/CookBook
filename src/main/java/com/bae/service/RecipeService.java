@@ -33,10 +33,8 @@ public class RecipeService {
 		}
 		
 	//	else if (!Double.toString(recipe.getCookTime()).matches("^-?\\d*\\.\\d{2}$")) { 
-		//	throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH.MM format.");
-			
-	//	}
-			
+	//		
+	//	}	
 	//	else if (!Double.toString(recipe.getPrepTime()).matches("^-?\\d*\\.\\d{2}$")) {
 		//		throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH.MM format."); 
 		//	}
@@ -45,7 +43,7 @@ public class RecipeService {
 	//	}
 	
 		return this.repository.save(recipe);
-
+		
 }
 
 
