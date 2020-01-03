@@ -130,8 +130,78 @@ public class RecipeServiceUnitTest {
 		verify(this.repository, times(1)).save (this.testRecipe); 
 	}
 	
+	@Test
+	public void createRecipeCookTimeTest() {
+		testRecipe.setCookTime(1.30);
+		testRecipeWithID.setCookTime(1.30);
+		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
+		
+		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
+		
+		verify(this.repository, times(1)).save (this.testRecipe); 
+	}
 	
+	@Test
+	public void createRecipeCookTimeIntegerTest() {
+		testRecipe.setCookTime(100);
+		testRecipeWithID.setCookTime(100);
+		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
+		
+		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
+		
+		verify(this.repository, times(1)).save (this.testRecipe); 
+	}
+	
+	
+	@Test
+	public void createRecipePrepTimeTest() {
+		testRecipe.setPrepTime(1.30);
+		testRecipeWithID.setPrepTime(1.30);
+		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
+		
+		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
+		
+		verify(this.repository, times(1)).save (this.testRecipe); 
+	}
+	
+	
+	@Test
+	public void createRecipePrepTimeIntegerTest() {
+		testRecipe.setPrepTime(130);
+		testRecipeWithID.setPrepTime(130);
+		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
+		
+		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
+		
+		verify(this.repository, times(1)).save (this.testRecipe); 
+	}
 
+	@Test
+	public void createRecipePricePerUnitTest() {
+		testRecipe.setPricePerUnit(0.70);
+		testRecipeWithID.setPricePerUnit(0.70);
+		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
+		
+		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
+		
+		verify(this.repository, times(1)).save (this.testRecipe); 
+		
+	}
+		
+		@Test
+		public void createRecipePricePerUnitIntegerTest() {
+			testRecipe.setPricePerUnit(70);
+			testRecipeWithID.setPricePerUnit(70);
+			when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
+			
+			assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
+			
+			verify(this.repository, times(1)).save (this.testRecipe); 
+	}
+		
+		
+
+		
 	@Test
 	public void deleteRecipeTest() {
 		when(this.repository.existsById(id)).thenReturn(true,false);
