@@ -18,7 +18,7 @@ public class Recipe {
 	}
 
 
-	public Recipe(String recipeTitle, String recipeMethod, double prepTime, double cookTime, double pricePerUnit) {
+	public Recipe(String recipeTitle, String recipeMethod, String prepTime, String cookTime, String pricePerUnit) {
 		super();
 		this.recipeTitle = recipeTitle;
 		this.recipeMethod = recipeMethod;
@@ -33,9 +33,9 @@ public class Recipe {
 	private Long recipeId;
 	private String recipeTitle;
 	private String recipeMethod;
-	private double prepTime;
-	private double cookTime;
-	private double pricePerUnit;
+	private String prepTime;
+	private String cookTime;
+	private String pricePerUnit;
 
 	//@ManyToMany
 	//@JoinTable(name = "recipe_category ", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "categoryId"))
@@ -70,27 +70,27 @@ public class Recipe {
 		this.recipeMethod = recipeMethod;
 	}
 
-	public double getPrepTime() {
+	public String getPrepTime() {
 		return prepTime;
 	}
 
-	public void setPrepTime(double d) {
-		this.prepTime = d;
+	public void setPrepTime(String prepTime) {
+		this.prepTime = prepTime;
 	}
 
-	public double getCookTime() {
+	public String getCookTime() {
 		return cookTime;
 	}
 
-	public void setCookTime(double d) {
-		this.cookTime = d;
+	public void setCookTime(String cookTime) {
+		this.cookTime = cookTime;
 	}
 
-	public double getPricePerUnit() {
+	public String getPricePerUnit() {
 		return pricePerUnit;
 	}
 
-	public void setPricePerUnit(double pricePerUnit) {
+	public void setPricePerUnit(String pricePerUnit) {
 		this.pricePerUnit = pricePerUnit;
 	}
 

@@ -32,15 +32,15 @@ public class RecipeService {
 			throw new IllegalStateException("Invalid Recipe Method. Please enter a recipe method between 10 and 600 words.");
 		}
 		
-		else if (Double.toString(recipe.getCookTime()).matches("^-?\\d*z\\.\\d{2}$")) { 
+		else if (!recipe.getCookTime().matches("^(20|21|22|23|[01]\\d|\\d)((:[0-5]\\d){1,2})$")) { 
 			throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH.MM format."); 
 		}	
-	//	else if (!Double.toString(recipe.getPrepTime()).matches("^-?\\d*\\.\\d{2}$")) {
-		//		throw new IllegalStateException("Invalid PrepTime. Please enter a valid PrepTime in the HH.MM format."); 
-		//	}
-	//	else if (!Double.toString(recipe.getPricePerUnit()).matches("^-?\\d*\\.\\d{2}$")) {
-		//		throw new IllegalStateException("Invalid Price per unit. Please enter a valid Price per unit in the ££.pp format. ");
-	//	}
+		else if (!recipe.getPrepTime().matches("^(20|21|22|23|[01]\\d|\\d)((:[0-5]\\d){1,2})$")) {
+				throw new IllegalStateException("Invalid PrepTime. Please enter a valid PrepTime in the HH.MM format."); 
+			}
+		else if (!recipe.getPricePerUnit().matches("^(20|21|22|23|[01]\\d|\\d)((:[0-5]\\d){1,2})$")) {
+				throw new IllegalStateException("Invalid Price per unit. Please enter a valid Price per unit in the ££.pp format. ");
+		}
 	
 		return this.repository.save(recipe);
 		

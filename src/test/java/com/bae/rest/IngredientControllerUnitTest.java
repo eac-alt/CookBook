@@ -41,7 +41,7 @@ public class IngredientControllerUnitTest {
 	public void init() {
 		this.ingredientList = new ArrayList<>();
 		this.ingredientList.add(testIngredient);
-		this.testIngredient = new Ingredient ("Chocolate", "500g  " );
+		this.testIngredient = new Ingredient ("Chocolate", "500g" );
 	    this.testIngredientWithId = new Ingredient(this.testIngredient.getIngredientName(), this.testIngredient.getIngredientAmount());
 
 	    this.testIngredientWithId.setIngredientId(id);

@@ -30,7 +30,7 @@ public class IngredientController {
 		this.ingredientService = ingredientService;
 	}
 
-	@GetMapping("/getAllIngredients")
+	@GetMapping("/getAllIngredient")
 	public List<Ingredient> getAllIngredients() {
 		return ingredientService.findAllIngredient();
 	}

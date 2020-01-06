@@ -42,7 +42,7 @@ public class RecipeControllerUnitTest {
 	public void init() {
 		this.recipeList = new ArrayList<>();
 		this.recipeList.add(testRecipe);
-		this.testRecipe = new Recipe ("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , 1.0 , 0.30, 0.50 );
+		this.testRecipe = new Recipe ("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , "1.0" , "0.30", "0.50" );
 	    this.testRecipeWithId = new Recipe(this.testRecipe.getRecipeTitle(), this.testRecipe.getRecipeMethod(), this.testRecipe.getPrepTime(), this.testRecipe.getCookTime(), this.testRecipe.getPricePerUnit());
 
 	    this.testRecipeWithId.setRecipeId(id);
@@ -96,7 +96,7 @@ public class RecipeControllerUnitTest {
 	
 	public void updateRecipeTest() {
 		
-		Recipe newRecipe = new Recipe ("Chocolate Cake", "1.Mix ingredients, 2.Transfer mixture into baking tin 3. Bake at 170", 1.05, 0.45, 0.75);
+		Recipe newRecipe = new Recipe ("Chocolate Cake", "1.Mix ingredients, 2.Transfer mixture into baking tin 3. Bake at 170", "1.05", "0.45", "0.75");
 		Recipe updatedRecipe = new Recipe(newRecipe.getRecipeTitle(), newRecipe.getRecipeMethod(), newRecipe.getPrepTime(), newRecipe.getCookTime(), newRecipe.getPricePerUnit());
 		updatedRecipe.setRecipeId(this.id);
 		

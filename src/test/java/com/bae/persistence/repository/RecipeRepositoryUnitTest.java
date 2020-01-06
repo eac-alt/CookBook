@@ -22,7 +22,7 @@ import com.bae.persistence.domain.Recipe;
 
 		private final String TEST_TITLE = "Victoria Sponge";
 
-		private final Recipe TEST_RECIPE = new Recipe("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , 1.0 , 0.30, 0.50 );
+		private final Recipe TEST_RECIPE = new Recipe("Victoria Sponge", "1.Combine ingredients 2. Mix well 3.Bake at 180 " , "1.0" , "0.30", "0.50 ");
 
 		private Recipe testSavedRecipe;
 
