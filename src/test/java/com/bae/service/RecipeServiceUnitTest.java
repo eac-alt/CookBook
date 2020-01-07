@@ -131,8 +131,8 @@ public class RecipeServiceUnitTest {
 	
 	@Test
 	public void createRecipeCookTimeTest() {
-		testRecipe.setCookTime("01.30");
-		testRecipeWithID.setCookTime("01.30");
+		testRecipe.setCookTime("01:30");
+		testRecipeWithID.setCookTime("01:30");
 		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
@@ -153,8 +153,8 @@ public class RecipeServiceUnitTest {
 	
 	@Test
 	public void createRecipePrepTimeTest() {
-		testRecipe.setPrepTime("01.30");
-		testRecipeWithID.setPrepTime("01.30");
+		testRecipe.setPrepTime("01:30");
+		testRecipeWithID.setPrepTime("01:30");
 		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
@@ -176,7 +176,7 @@ public class RecipeServiceUnitTest {
 	@Test
 	public void createRecipePricePerUnitTest() {
 		testRecipe.setPricePerUnit("00.70");
-		testRecipeWithID.setPricePerUnit("00.70");
+		testRecipeWithID.setPricePerUnit("00:70");
 		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
@@ -193,7 +193,7 @@ public class RecipeServiceUnitTest {
 			this.service.createRecipe(testRecipe);
 			
 			
-			verify(this.repository, times(1)).save (this.testRecipe); 
+			verify(this.repository, times(0)).save (this.testRecipe); 
 	}
 		
 		
@@ -236,7 +236,7 @@ public class RecipeServiceUnitTest {
 	
 	public void updateRecipeTest() {
 		
-		Recipe newRecipe = new Recipe ("Chocolate Cake", "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely ", "01.05", "00.45", "00.75");
+		Recipe newRecipe = new Recipe ("Chocolate Cake", "For the vanilla ice cream, pour the cream and milk into a heavy-based saucepan", "01.00", "02.00", "00.30");
 		Recipe updatedRecipe = new Recipe(newRecipe.getRecipeTitle(), newRecipe.getRecipeMethod(), newRecipe.getPrepTime(), newRecipe.getCookTime(), newRecipe.getPricePerUnit());
 		updatedRecipe.setRecipeId(this.id);
 		
