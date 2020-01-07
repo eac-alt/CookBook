@@ -175,8 +175,8 @@ public class RecipeServiceUnitTest {
 
 	@Test
 	public void createRecipePricePerUnitTest() {
-		testRecipe.setPricePerUnit("00.70");
-		testRecipeWithID.setPricePerUnit("00:70");
+		testRecipe.setPricePerUnit("00.20");
+		testRecipeWithID.setPricePerUnit("00:20");
 		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));

@@ -8,6 +8,7 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<packaging>war</packaging>
 	<groupId>com.bae</groupId>
 	<artifactId>cookbook</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -37,9 +38,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+		<dependency><artifactId>spring-boot-starter-tomcat</artifactId></dependency>
+		</dependencies>
 
 	<build>
+	<finalName>${artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
