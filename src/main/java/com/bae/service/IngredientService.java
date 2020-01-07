@@ -31,6 +31,8 @@ public class IngredientService {
 				}			
 			return this.repository.save(ingredient);
 		}
+		
+		
 
 		public Ingredient updateIngredient(Ingredient ingredient, long id){
 			Ingredient toUpdate = this.repository.findById(id).orElseThrow(RecipeNotFoundException::new);

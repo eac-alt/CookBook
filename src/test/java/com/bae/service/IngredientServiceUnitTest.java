@@ -58,6 +58,18 @@ public class IngredientServiceUnitTest {
 		
 		verify(this.repository, times(1)).save (this.testIngredient); 
 	}
+	
+	@Test (expected = IllegalStateException.class)
+	public void createIngredientNameTooShortTest() {
+		testIngredient.setIngredientName("a");
+		testIngredientWithID.setIngredientName("a");
+		this.service.createIngredient(testIngredient);
+		
+		
+		verify(this.repository, times(0)).save (this.testIngredient); 
+	}
+
+	
 
 	
 	@Test
