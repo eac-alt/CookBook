@@ -19,7 +19,7 @@ import com.bae.persistence.domain.Recipe;
 import com.bae.service.RecipeService;
 
 @RestController 
-@RequestMapping("/Recipeapp")
+@RequestMapping("/recipe")
 public class RecipeController {
 
 		private RecipeService recipeService;
@@ -34,7 +34,7 @@ public class RecipeController {
 		public List<Recipe> getAllRecipe() {
 			return recipeService.findAllRecipe();
 		}
-		@GetMapping("/get{id}")
+		@GetMapping("/getRecipe{id}")
 		public Recipe getRecipe(@PathVariable Long id) {
 			return this.recipeService.findRecipeById(id);
 		}

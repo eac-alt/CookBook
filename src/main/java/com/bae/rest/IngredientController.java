@@ -18,7 +18,7 @@ import com.bae.persistence.domain.Ingredient;
 import com.bae.service.IngredientService;
 
 @RestController 
-@RequestMapping("/Ingredientapp")
+@RequestMapping("/ingredient")
 
 public class IngredientController {
 	
@@ -34,7 +34,7 @@ public class IngredientController {
 	public List<Ingredient> getAllIngredients() {
 		return ingredientService.findAllIngredient();
 	}
-	@GetMapping("/get{id}")
+	@GetMapping("/getIngredient{id}")
 	public Ingredient getIngredient(@PathVariable Long id) {
 		return this.ingredientService.findIngredientById(id);
 	}
