@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.RecipeNotFoundException;
+import com.bae.persistence.domain.Ingredient;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.RecipeRepository;
 
@@ -12,10 +13,13 @@ import com.bae.persistence.repository.RecipeRepository;
 public class RecipeService {
 
 	private RecipeRepository repository;
+	
+	private IngredientService ingredientService;
 
 	@Autowired
-	public RecipeService(RecipeRepository repository) {
+	public RecipeService(RecipeRepository repository, IngredientService ingredientService) {
 		this.repository = repository;
+		this.ingredientService = ingredientService;
 	}
 
 	public List<Recipe> findAllRecipe() {
@@ -66,6 +70,15 @@ public class RecipeService {
 
 	public Recipe findRecipeById(Long id) {
 		return this.repository.findById(id).orElseThrow(() -> new RecipeNotFoundException());
+	}
+	
+	public Recipe updateIngredients(Long recipeId, List<Long> ingredientIdList) {
+		Recipe toUpdate = this.findRecipeById(recipeId);
+		for (Long ingredientId : ingredientIdList) {
+			Ingredient ingredient = this.ingredientService.findIngredientById(ingredientId);
+			toUpdate.getIngredients().add(ingredient);
+		}
+		return this.repository.saveAndFlush(toUpdate);				
 	}
 
 }

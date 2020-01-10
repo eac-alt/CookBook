@@ -45,6 +45,14 @@ public class Recipe {
 	@OneToMany
 	//@JoinTable(name = "recipe_ingredient", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "ingredientId"))
 	private List<Ingredient> ingredients;
+	
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
 
 	public Long getRecipeId() {
 		return recipeId;
