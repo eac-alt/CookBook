@@ -12,17 +12,17 @@ public class Ingredient  {
 		super();
 	}
 
-	public Ingredient(String ingredientName , String ingredientAmount) {
+	public Ingredient(String ingredientName) {
 		super();
 		this.ingredientName = ingredientName;
-		this.ingredientAmount = ingredientAmount;
+		
 		
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ingredientId;
 	private String ingredientName;
-	private String ingredientAmount; 
+	
 
 	
 	
@@ -48,12 +48,7 @@ public class Ingredient  {
 		return "Ingredient [ingredientId=" + ingredientId + ", ingredientName=" + ingredientName
 				+ "]";
 	}
-	public String getIngredientAmount() {
-		return ingredientAmount;
-	}
-	public void setIngredientAmount(String ingredientAmount) {
-		this.ingredientAmount = ingredientAmount;
-	}
+
 	
 
 	@Override
@@ -69,11 +64,6 @@ public class Ingredient  {
 			if (other.ingredientName != null)
 				return false;
 		} else if (!ingredientName.equals(other.ingredientName))
-			return false;
-		if (ingredientAmount == null) {
-			if (other.ingredientAmount != null)
-				return false;
-		} else if (!ingredientAmount.equals(other.ingredientAmount))
 			return false;
 		if (ingredientId != other.ingredientId)
 			return false;

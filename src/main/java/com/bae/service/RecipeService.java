@@ -72,7 +72,7 @@ public class RecipeService {
 		return this.repository.findById(id).orElseThrow(() -> new RecipeNotFoundException());
 	}
 	
-	public Recipe updateIngredients(Long recipeId, List<Long> ingredientIdList) {
+	public Recipe addToRecipe(Long recipeId, List<Long> ingredientIdList) {
 		Recipe toUpdate = this.findRecipeById(recipeId);
 		for (Long ingredientId : ingredientIdList) {
 			Ingredient ingredient = this.ingredientService.findIngredientById(ingredientId);
@@ -80,5 +80,6 @@ public class RecipeService {
 		}
 		return this.repository.saveAndFlush(toUpdate);				
 	}
+
 
 }

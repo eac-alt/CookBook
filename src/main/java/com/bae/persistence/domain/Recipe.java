@@ -2,6 +2,7 @@ package com.bae.persistence.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class Recipe {
 	//private Set<Category> recipeHasCategory;
 	
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	//@JoinTable(name = "recipe_ingredient", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "ingredientId"))
 	private List<Ingredient> ingredients;
 	

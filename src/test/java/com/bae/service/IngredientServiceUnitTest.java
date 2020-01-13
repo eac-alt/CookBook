@@ -43,8 +43,8 @@ public class IngredientServiceUnitTest {
 	public void init() {
 		this.ingredientList = new ArrayList<>();
 		this.ingredientList.add(testIngredient);
-		this.testIngredient = new Ingredient ("Chocolate", "500g" );
-		this.testIngredientWithID = new Ingredient(testIngredient.getIngredientName(),testIngredient.getIngredientAmount()); 
+		this.testIngredient = new Ingredient ("Chocolate 500g" );
+		this.testIngredientWithID = new Ingredient(testIngredient.getIngredientName()); 
 	    this.testIngredientWithID.setIngredientId(id);
 	    
 
@@ -59,17 +59,7 @@ public class IngredientServiceUnitTest {
 		verify(this.repository, times(1)).save (this.testIngredient); 
 	}
 	
-	@Test (expected = IllegalStateException.class)
-	public void createIngredientNameTooShortTest() {
-		testIngredient.setIngredientName("a");
-		testIngredientWithID.setIngredientName("a");
-		this.service.createIngredient(testIngredient);
-		
-		
-		verify(this.repository, times(0)).save (this.testIngredient); 
-	}
 
-	
 
 	
 	@Test
@@ -109,8 +99,8 @@ public class IngredientServiceUnitTest {
 	
 	public void updateIngredientTest() {
 		
-		Ingredient newIngredient = new Ingredient ("Chocolate", "500g");
-		Ingredient updatedIngredient = new Ingredient(newIngredient.getIngredientName(), newIngredient.getIngredientAmount());
+		Ingredient newIngredient = new Ingredient ("Chocolate");
+		Ingredient updatedIngredient = new Ingredient(newIngredient.getIngredientName());
 		updatedIngredient.setIngredientId(this.id);
 		
 		when(this.repository.findById(this.id)).thenReturn(Optional.of(this.testIngredientWithID));

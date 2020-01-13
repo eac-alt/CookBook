@@ -10,48 +10,45 @@ import com.bae.exceptions.RecipeNotFoundException;
 import com.bae.persistence.domain.Ingredient;
 import com.bae.persistence.repository.IngredientRepository;
 
+
 @Service
 public class IngredientService {
 	
-	private IngredientRepository repository;
+	private IngredientRepository ingredientRepository;
+	
 	
 		@Autowired
 		public IngredientService(IngredientRepository repository) {
-			this.repository = repository;
+			this.ingredientRepository = repository;
 		}
 
 		public List<Ingredient> findAllIngredient() {
-			return repository.findAll();
+			return ingredientRepository.findAll();
 		}
 
 		public Ingredient createIngredient(Ingredient ingredient) {
-
-				if (!ingredient.getIngredientName().matches("^[A-Za-z]{3,30}$")){
-					throw new IllegalStateException("Invalid Ingredient Name. Please enter an ingredient name between 5 and 30 letters from A to Z.");
-				}			
-			return this.repository.save(ingredient);
+			return this.ingredientRepository.save(ingredient);
 		}
 		
 		
 
 		public Ingredient updateIngredient(Ingredient ingredient, long id){
-			Ingredient toUpdate = this.repository.findById(id).orElseThrow(RecipeNotFoundException::new);
+			Ingredient toUpdate = this.ingredientRepository.findById(id).orElseThrow(RecipeNotFoundException::new);
 			toUpdate.setIngredientName(ingredient.getIngredientName());
-			toUpdate.setIngredientAmount(ingredient.getIngredientAmount());
-			return this.repository.save(toUpdate);
+			return this.ingredientRepository.save(toUpdate);
 			
 		}
 
 		public boolean deleteIngredient(Long id) {
-			if (!this.repository.existsById(id)) {
+			if (!this.ingredientRepository.existsById(id)) {
 					throw new IngredientNotFoundException();
 			}
-			this.repository.deleteById(id);
-			return this.repository.existsById(id);
+			this.ingredientRepository.deleteById(id);
+			return this.ingredientRepository.existsById(id);
 		}
 
 		public Ingredient findIngredientById(Long id) {
-			return this.repository.findById(id).orElseThrow( IngredientNotFoundException:: new); 
+			return this.ingredientRepository.findById(id).orElseThrow( IngredientNotFoundException:: new); 
 		}
 }
 		

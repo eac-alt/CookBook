@@ -41,8 +41,8 @@ public class IngredientControllerUnitTest {
 	public void init() {
 		this.ingredientList = new ArrayList<>();
 		this.ingredientList.add(testIngredient);
-		this.testIngredient = new Ingredient ("Chocolate", "500g" );
-	    this.testIngredientWithId = new Ingredient(this.testIngredient.getIngredientName(), this.testIngredient.getIngredientAmount());
+		this.testIngredient = new Ingredient ("Chocolate");
+	    this.testIngredientWithId = new Ingredient(this.testIngredient.getIngredientName());
 
 	    this.testIngredientWithId.setIngredientId(id);
 		
@@ -95,8 +95,8 @@ public class IngredientControllerUnitTest {
 	
 	public void updateIngredientTest() {
 		
-		Ingredient newIngredient = new Ingredient ("Chocolate ", "500g");
-		Ingredient updatedIngredient = new Ingredient(newIngredient.getIngredientName(), newIngredient.getIngredientAmount());
+		Ingredient newIngredient = new Ingredient ("Chocolate");
+		Ingredient updatedIngredient = new Ingredient(newIngredient.getIngredientName());
 		updatedIngredient.setIngredientId(this.id);
 		
 		when(this.service.updateIngredient(newIngredient, this.id)).thenReturn(updatedIngredient);
