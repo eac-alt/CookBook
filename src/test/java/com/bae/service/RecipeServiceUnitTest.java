@@ -53,40 +53,23 @@ public class RecipeServiceUnitTest {
 
 	}
 	
-	@Test (expected = IllegalStateException.class)
-	public void createRecipeTitleTooShortTest() {
-		testRecipe.setRecipeTitle("a");
-		testRecipeWithID.setRecipeTitle("a");
-		this.service.createRecipe(testRecipe);
-		
-		
-		verify(this.repository, times(0)).save (this.testRecipe); 
-	}
+	
 
 	@Test (expected = IllegalStateException.class)
 	public void createRecipeTitleTooLongTest() {
-		testRecipe.setRecipeTitle("abcdefghijklmnopqrstuvwxyzABCDEF");
-		testRecipeWithID.setRecipeTitle("abcdefghijklmnopqrstuvwxyzABCDEFa");
+		testRecipe.setRecipeTitle("a b c d e f g h i");
+		testRecipeWithID.setRecipeTitle("a b c d e f g h i");
 		this.service.createRecipe(testRecipe);
 		
 		
 		verify(this.repository, times(0)).save (this.testRecipe); 
 	}
 
-	@Test (expected = IllegalStateException.class)
-	public void createRecipeTitleNumsAndSymbolsTest() {
-		testRecipe.setRecipeTitle("&%$**31926");
-		testRecipeWithID.setRecipeTitle("&%$**31926");
-		this.service.createRecipe(testRecipe);
-		
-		
-		verify(this.repository, times(0)).save (this.testRecipe);
-	}
 	
 	@Test 
 	public void createRecipeTitleTest() {
-		testRecipe.setRecipeTitle("Sponge");
-		testRecipeWithID.setRecipeTitle("Sponge");
+		testRecipe.setRecipeTitle("Sponge Cake");
+		testRecipeWithID.setRecipeTitle("Sponge Cake");
 		when (this.repository.save(this.testRecipe)).thenReturn(this.testRecipeWithID);
 		
 		assertEquals(this.testRecipeWithID,this.service.createRecipe(testRecipe));
