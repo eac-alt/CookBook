@@ -29,7 +29,6 @@ import com.bae.service.RecipeService;
 public class RecipeController {
 
 		private RecipeService recipeService;
-		private IngredientService ingredientService;
 		
 		@Autowired
 		public RecipeController(RecipeService recipeService){
@@ -51,8 +50,8 @@ public class RecipeController {
 			return recipeService.createRecipe(recipe);
 		}
 
-		@PutMapping("/updateRecipe")
-		public Recipe updateRecipe(@PathParam("id") Long id, @RequestBody Recipe recipe) {
+		@PutMapping("/updateRecipe/{id}")
+		public Recipe updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
 			return this.recipeService.updateRecipe(recipe, id);
 		}
 

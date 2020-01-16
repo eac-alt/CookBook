@@ -65,6 +65,7 @@ public class RecipeService {
 			throw new RecipeNotFoundException();
 		}
 		this.repository.deleteById(id);
+
 		return this.repository.existsById(id);
 	}
 
