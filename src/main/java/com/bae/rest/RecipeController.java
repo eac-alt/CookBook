@@ -61,11 +61,7 @@ public class RecipeController {
 			 this.recipeService.deleteRecipe(id);
 		}
 			 
-		@PatchMapping("/update/{recipeId}/{ingredientId}")
-		
-		public Recipe addToRecipe(@PathParam("recipeId") Long recipeId, @PathParam("ingredientIdList") List<Long> ingredientIdList) {
-		return this.recipeService.addToRecipe(recipeId,ingredientIdList);
-		}
+	
 		
 		
 
