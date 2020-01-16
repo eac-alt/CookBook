@@ -41,7 +41,7 @@ public class Recipe {
 
 	//@ManyToMany
 	//@JoinTable(name = "recipe_category ", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "categoryId"))
-	//private Set<Category> recipeHasCategory;
+	//private Set<Category> recipeHasCategory;//
 	
 
 	@OneToMany(cascade = CascadeType.ALL)
