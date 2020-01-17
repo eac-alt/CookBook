@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.RecipeNotFoundException;
-import com.bae.persistence.domain.Ingredient;
 import com.bae.persistence.domain.Recipe;
 import com.bae.persistence.repository.RecipeRepository;
 
@@ -14,12 +13,10 @@ public class RecipeService {
 
 	private RecipeRepository repository;
 	
-	private IngredientService ingredientService;
 
 	@Autowired
-	public RecipeService(RecipeRepository repository, IngredientService ingredientService) {
+	public RecipeService(RecipeRepository repository) {
 		this.repository = repository;
-		this.ingredientService = ingredientService;
 	}
 
 	public List<Recipe> findAllRecipe() {
@@ -29,10 +26,10 @@ public class RecipeService {
 	public Recipe createRecipe(Recipe recipe) {
 		if (matches(recipe.getRecipeTitle(), "^\\W*(?:\\w+\\b\\W*){1,5}$")) {
 			throw new IllegalStateException(
-					"Invalid Recipe Name. Please enter a recipe name between 5 and 30 letters from A to Z.");
+					"Invalid Recipe Name. Please enter a recipe name between 1 and 5 words.");
 		} else if (matches(recipe.getRecipeMethod(),"^\\W*(?:\\w+\\b\\W*){10,800}$")) {
 			throw new IllegalStateException(
-					"Invalid Recipe Method. Please enter a recipe method between 10 and 600 words.");
+					"Invalid Recipe Method. Please enter a recipe method between 10 and 800 words.");
 		} else if (matches(recipe.getCookTime(),"^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$")) {
 			throw new IllegalStateException("Invalid CookTime. Please enter a valid CookTime in the HH.MM format.");
 		} else if (matches(recipe.getPrepTime(),"^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$")) {
@@ -70,17 +67,8 @@ public class RecipeService {
 	}
 
 	public Recipe findRecipeById(Long id) {
-		return this.repository.findById(id).orElseThrow(() -> new RecipeNotFoundException());
+		return this.repository.findById(id).orElseThrow(RecipeNotFoundException::new);
 	}
 	
-	public Recipe addToRecipe(Long recipeId, List<Long> ingredientIdList) {
-		Recipe toUpdate = this.findRecipeById(recipeId);
-		for (Long ingredientId : ingredientIdList) {
-			Ingredient ingredient = this.ingredientService.findIngredientById(ingredientId);
-			toUpdate.getIngredients().add(ingredient);
-		}
-		return this.repository.saveAndFlush(toUpdate);				
-	}
-
-
+	
 }

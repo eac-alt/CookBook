@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Ingredient  {
+public class Ingredient {
 
 	public Ingredient() {
 		super();
@@ -15,61 +15,57 @@ public class Ingredient  {
 	public Ingredient(String ingredientName) {
 		super();
 		this.ingredientName = ingredientName;
-		
-		
+
 	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ingredientId;
 	private String ingredientName;
-	
-
-	
-	
-
-	//@ManyToMany(mappedBy = "recipeHasIngredient")
-	//private Set<Recipe> ingredientIsInRecipe;
 
 	public Long getIngredientId() {
 		return ingredientId;
 	}
+
 	public void setIngredientId(Long ingredientId) {
 		this.ingredientId = ingredientId;
 	}
+
 	public String getIngredientName() {
 		return ingredientName;
 	}
+
 	public void setIngredientName(String ingredientName) {
 		this.ingredientName = ingredientName;
 
 	}
+
 	@Override
 	public String toString() {
-		return "Ingredient [ingredientId=" + ingredientId + ", ingredientName=" + ingredientName
-				+ "]";
+		return "Ingredient [ingredientId=" + ingredientId + ", ingredientName=" + ingredientName + "]";
 	}
-
-	
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Ingredient other = (Ingredient) obj;
 		if (ingredientName == null) {
-			if (other.ingredientName != null)
+			if (other.ingredientName != null) {
 				return false;
-		} else if (!ingredientName.equals(other.ingredientName))
+			}
+		} else if (!ingredientName.equals(other.ingredientName)) {
 			return false;
-		if (ingredientId != other.ingredientId)
-			return false;
-	
+		}
 		return true;
 	}
 
-	
+
 }

@@ -10,5 +10,5 @@ import com.bae.persistence.domain.Ingredient;
 
 	@Repository
 	public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
-		List<Ingredient> findByIngredientName(String Name);
+		List<Ingredient> findByIngredientName(String name);
 }
