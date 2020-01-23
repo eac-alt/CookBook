@@ -1,0 +1,10 @@
+/home/ubuntu/CookBook/src/test/java/com/bae/persistence/repository/IngredientRepositoryUnitTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/service/RecipeServiceUnitTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/service/IngredientServiceIntegrationTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/service/RecipeServiceIntegrationTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/persistence/repository/RecipeRepositoryUnitTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/service/IngredientServiceUnitTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/rest/IngredientControllerUnitTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/rest/RecipeControllerUnitTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/rest/RecipeControllerIntegrationTest.java
+/home/ubuntu/CookBook/src/test/java/com/bae/rest/IngredientControllerIntegrationTest.java

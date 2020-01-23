@@ -33,7 +33,7 @@ public class Recipe {
 	@Column(name = "recipe_id")
 	private Long recipeId;
 	private String recipeTitle;
-	@Column(length = 40000)
+	@Column(length = 10000)
 	private String recipeMethod;
 	private String prepTime;
 	private String cookTime;
