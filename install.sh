@@ -1,9 +1,43 @@
-#!/bin/bash 
+#!/bin/bash
 
+
+
+mkdir Cookbookdb
 cd Cookbookdb
-sudo mvn clean package -DskipTests
 
-docker build -t cookbook-app  .
-docker run d p 9000:8081 --name cookbook-app cookbook-app
+
+sudo apt install maven
+
+sudo apt-get update
+
+
+
+sudo apt-get remove docker docker-engine docker.io
+
+
+
+sudo apt install docker.io
+
+
+
+docker version 
+
+
+
+sudo usermod -aG docker $(whoami)
+
+
+
+Exit 
+
+
+
+
+
+
+
+
+
+
 
 
