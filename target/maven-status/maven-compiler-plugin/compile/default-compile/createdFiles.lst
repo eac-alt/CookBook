@@ -1,7 +1,7 @@
 com/bae/service/IngredientService.class
 com/bae/persistence/domain/Recipe.class
-com/bae/exceptions/RecipeNotFoundException.class
 com/bae/persistence/repository/IngredientRepository.class
+com/bae/exceptions/RecipeNotFoundException.class
 com/bae/exceptions/IngredientNotFoundException.class
 com/bae/service/RecipeService.class
 com/bae/CookbookApplication.class

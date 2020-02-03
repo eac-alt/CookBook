@@ -1,11 +1,11 @@
 /home/ubuntu/CookBook/src/main/java/com/bae/persistence/repository/IngredientRepository.java
 /home/ubuntu/CookBook/src/main/java/com/bae/persistence/domain/Recipe.java
 /home/ubuntu/CookBook/src/main/java/com/bae/persistence/repository/RecipeRepository.java
-/home/ubuntu/CookBook/src/main/java/com/bae/service/RecipeService.java
 /home/ubuntu/CookBook/src/main/java/com/bae/rest/IngredientController.java
+/home/ubuntu/CookBook/src/main/java/com/bae/service/RecipeService.java
 /home/ubuntu/CookBook/src/main/java/com/bae/persistence/domain/Ingredient.java
-/home/ubuntu/CookBook/src/main/java/com/bae/CookbookApplication.java
 /home/ubuntu/CookBook/src/main/java/com/bae/rest/RecipeController.java
+/home/ubuntu/CookBook/src/main/java/com/bae/CookbookApplication.java
 /home/ubuntu/CookBook/src/main/java/com/bae/exceptions/RecipeNotFoundException.java
 /home/ubuntu/CookBook/src/main/java/com/bae/exceptions/IngredientNotFoundException.java
 /home/ubuntu/CookBook/src/main/java/com/bae/service/IngredientService.java

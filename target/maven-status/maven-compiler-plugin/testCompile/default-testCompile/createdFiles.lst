@@ -3,8 +3,8 @@ com/bae/rest/IngredientControllerUnitTest.class
 com/bae/service/IngredientServiceIntegrationTest.class
 com/bae/rest/RecipeControllerUnitTest.class
 com/bae/service/RecipeServiceIntegrationTest.class
-com/bae/service/RecipeServiceUnitTest.class
 com/bae/rest/RecipeControllerIntegrationTest.class
+com/bae/service/RecipeServiceUnitTest.class
 com/bae/persistence/repository/IngredientRepositoryUnitTest.class
 com/bae/service/IngredientServiceUnitTest.class
 com/bae/rest/IngredientControllerIntegrationTest.class

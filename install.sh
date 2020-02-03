@@ -2,8 +2,6 @@
 
 
 
-mkdir Cookbookdb
-cd Cookbookdb
 
 
 sudo apt install maven
